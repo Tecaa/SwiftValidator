@@ -29,7 +29,7 @@ public class PasswordRule : RegexRule {
      - parameter message: String of error message.
      - returns: An initialized `PasswordRule` object, or nil if an object could not be created for some reason that would not result in an exception.
      */
-    public convenience init(message : String = "Must be 8 characters with 1 uppercase") {
+    public convenience init(message : String = "Debe tener 8 caracteres con 1 mayúscula") {
         self.init(regex: PasswordRule.regex, message : message)
     }
 }

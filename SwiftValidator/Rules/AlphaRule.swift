@@ -20,9 +20,7 @@ public class AlphaRule: CharacterSetRule {
      - parameter message: String of error message.
      - returns: An initialized object, or nil if an object could not be created for some reason.
      */
-    public init(message: String ) {
-        super.init(characterSet: CharacterSet.letters, message: message.isEmpty ? self.localization.ALPHA_RULE : message)
-        
-        super.localization.ALPHA_RULE
+    public init(message: String = "Ingrese solo caracteres alfabeticos") {
+        super.init(characterSet: CharacterSet.letters, message: message)
     }
 }

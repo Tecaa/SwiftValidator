@@ -20,7 +20,7 @@ public class FullNameRule : Rule {
      - parameter message: String of error message.
      - returns: An initialized `FullNameRule` object, or nil if an object could not be created for some reason that would not result in an exception.
      */
-    public init(message : String = "Please provide a first & last name"){
+    public init(message : String = "Por favor, ingrese un nombre y apellido"){
         self.message = message
     }
     
@@ -30,7 +30,7 @@ public class FullNameRule : Rule {
      - parameter value: String to checked for validation.
      - returns: A boolean value. True if validation is successful; False if validation fails.
      */
-    public override func validate(_ value: String) -> Bool {
+    public func validate(_ value: String) -> Bool {
         let nameArray: [String] = value.split { $0 == " " }.map { String($0) }
         return nameArray.count >= 2
     }
@@ -40,7 +40,7 @@ public class FullNameRule : Rule {
      
      - returns: String of error message.
      */
-    public override func errorMessage() -> String {
+    public func errorMessage() -> String {
         return message
     }
 }

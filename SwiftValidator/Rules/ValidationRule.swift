@@ -27,10 +27,10 @@ public class ValidationRule {
      - parameter rules: array of Rule objects, which field will be validated against.
      - returns: An initialized `ValidationRule` object, or nil if an object could not be created for some reason that would not result in an exception.
      */
-    public init(field: ValidatableField, rules:[Rule], errorLabel:UILabel?, localization : Localization){
+    public init(field: ValidatableField, rules:[Rule], errorLabel:UILabel?){
         self.field = field
         self.errorLabel = errorLabel
-        self.rules = self.setLocalization(rules: rules, localization: localization)
+        self.rules = rules
     }
     
     /**
@@ -41,11 +41,5 @@ public class ValidationRule {
         return rules.filter{
             return !$0.validate(field.validationText)
             }.map{ rule -> ValidationError in return ValidationError(field: self.field, errorLabel:self.errorLabel, error: rule.errorMessage()) }.first
-    }
-    
-    private func setLocalization(rules : [Rule], localization : Localization) -> [Rule]
-    {
-        rules.forEach{ let r = $0; r.localization = localization; }
-        return rules
     }
 }

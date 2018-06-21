@@ -13,7 +13,7 @@ import Foundation
  */
 public class ExactLengthRule : Rule {
     /// parameter message: String of error message.
-    private var message : String = "Must be at most 16 characters long"
+    private var message : String = "Debe tener exactamente 16 caracteres"
     /// parameter length: Integer value string length
     private var length : Int
     
@@ -24,7 +24,7 @@ public class ExactLengthRule : Rule {
      - parameter message: String of error message.
      - returns: An initialized `ExactLengthRule` object, or nil if an object could not be created for some reason. that would not result in an exception.
      */
-    public init(length: Int, message : String = "Must be exactly %ld characters long"){
+    public init(length: Int, message : String = "Debe tener exactamente %ld caracteres"){
         self.length = length
         self.message = String(format: message, self.length)
     }
@@ -35,7 +35,7 @@ public class ExactLengthRule : Rule {
      - parameter value: String to checked for validation.
      - returns: A boolean value. True if validation is successful; False if validation fails.
      */
-    public override func validate(_ value: String) -> Bool {
+    public func validate(_ value: String) -> Bool {
         return value.count == length
     }
     
@@ -44,7 +44,7 @@ public class ExactLengthRule : Rule {
      
      - returns: String of error message.
      */
-    public override func errorMessage() -> String {
+    public func errorMessage() -> String {
         return message
     }
 }

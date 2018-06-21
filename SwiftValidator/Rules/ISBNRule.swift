@@ -22,7 +22,7 @@ public class ISBNRule: Rule {
      - parameter message: String of error message.
      - returns: An initialized object, or nil if an object could not be created for some reason that would not result in an exception.
      */
-    public init(message: String = "Enter valid ISBN number") {
+    public init(message: String = "Debe ser un número ISBN válido") {
         self.message = message
     }
     
@@ -32,7 +32,7 @@ public class ISBNRule: Rule {
      - parameter value: String to checked for validation.
      - returns: Boolean value. True if validation is successful; False if validation fails.
      */
-    public override func validate(_ value: String) -> Bool {
+    public func validate(_ value: String) -> Bool {
         
         guard let regex = try? NSRegularExpression(pattern: "[\\s-]", options: []) else {
             fatalError("Invalid ISBN sanitizing regex")
@@ -48,7 +48,7 @@ public class ISBNRule: Rule {
      
      - returns: String of error message.
      */
-    public override func errorMessage() -> String {
+    public func errorMessage() -> String {
         return message;
     }
 }

@@ -24,7 +24,7 @@ public class CharacterSetRule: Rule {
      - parameter message: String of error message.
      - returns: An initialized object, or nil if an object could not be created for some reason that would not result in an exception.
      */
-    public init(characterSet: CharacterSet, message: String = "Enter valid alpha") {
+    public init(characterSet: CharacterSet, message: String = "Ingrese caracteres alfabéticos válidos") {
         self.characterSet = characterSet
         self.message = message
     }
@@ -35,7 +35,7 @@ public class CharacterSetRule: Rule {
      - parameter value: String to checked for validation.
      - returns: Boolean value. True if validation is successful; False if validation fails.
      */
-    public override func validate(_ value: String) -> Bool {
+    public func validate(_ value: String) -> Bool {
         for uni in value.unicodeScalars {
             guard let uniVal = UnicodeScalar(uni.value), characterSet.contains(uniVal) else {
                 return false
@@ -49,7 +49,7 @@ public class CharacterSetRule: Rule {
      
      - returns: String of error message.
      */
-    public override func errorMessage() -> String {
+    public func errorMessage() -> String {
         return message
     }
 }

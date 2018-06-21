@@ -14,9 +14,9 @@ public class MaxLengthRule: Rule {
     /// Default maximum character length.
     private var DEFAULT_LENGTH: Int = 16
     /// Error message to be displayed if validation fails.
-    private var message : String = "Must be at most 16 characters long"
+    private var message : String = "Debe tener a lo más 16 caracteres"
     /// - returns: An initialized `MaxLengthRule` object, or nil if an object could not be created for some reason that would not result in an exception.
-    public override init(){}
+    public init(){}
     
     /**
      Initializes a `MaxLengthRule` object that is to validate the length of the text of a field.
@@ -25,7 +25,7 @@ public class MaxLengthRule: Rule {
      - parameter message: String of error message.
      - returns: An initialized object, or nil if an object could not be created for some reason that would not result in an exception.
      */
-    public init(length: Int, message : String = "Must be at most %ld characters long"){
+    public init(length: Int, message : String = "Debe tener a lo más %ld caracteres"){
         self.DEFAULT_LENGTH = length
         self.message = String(format: message, self.DEFAULT_LENGTH)
     }
@@ -36,7 +36,7 @@ public class MaxLengthRule: Rule {
      - parameter value: String to checked for validation.
      - returns: A boolean value. True if validation is successful; False if validation fails.
      */
-    public override func validate(_ value: String) -> Bool {
+    public func validate(_ value: String) -> Bool {
         return value.count <= DEFAULT_LENGTH
     }
     
@@ -45,7 +45,7 @@ public class MaxLengthRule: Rule {
      
      - returns: String of error message.
      */
-    public override func errorMessage() -> String {
+    public func errorMessage() -> String {
         return message
     }
 }

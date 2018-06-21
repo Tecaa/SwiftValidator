@@ -20,7 +20,7 @@ public class AlphaNumericRule: CharacterSetRule {
      - parameter message: String of error message.
      - returns: An initialized object, or nil if an object could not be created for some reason that would not result in an exception.
      */
-    public init(message: String = "Enter valid numeric characters") {
+    public init(message: String = "Ingrese solo caracteres alfabéticos y numéricos") {
         super.init(characterSet: CharacterSet.alphanumerics, message: message)
     }
 }

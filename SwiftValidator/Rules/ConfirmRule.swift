@@ -26,7 +26,7 @@ public class ConfirmationRule: Rule {
      - parameter message: String of error message.
      - returns: An initialized object, or nil if an object could not be created for some reason that would not result in an exception.
      */
-    public init(confirmField: ValidatableField, message : String = "This field does not match"){
+    public init(confirmField: ValidatableField, message : String = "Los campos no coinciden"){
         self.confirmField = confirmField
         self.message = message
     }
@@ -37,7 +37,7 @@ public class ConfirmationRule: Rule {
      - parameter value: String to checked for validation.
      - returns: A boolean value. True if validation is successful; False if validation fails.
      */
-    public override func validate(_ value: String) -> Bool {
+    public func validate(_ value: String) -> Bool {
         return confirmField.validationText == value
     }
     
@@ -46,7 +46,7 @@ public class ConfirmationRule: Rule {
      
      - returns: String of error message.
      */
-    public override func errorMessage() -> String {
+    public func errorMessage() -> String {
         return message
     }
 }

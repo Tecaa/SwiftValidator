@@ -21,7 +21,7 @@ open class RequiredRule: Rule {
      - parameter message: String of error message.
      - returns: An initialized `RequiredRule` object, or nil if an object could not be created for some reason that would not result in an exception.
      */
-    public init(message : String = "This field is required"){
+    public init(message : String = "Este campo es obligatorio"){
         self.message = message
     }
     
@@ -31,7 +31,7 @@ open class RequiredRule: Rule {
      - parameter value: String to checked for validation.
      - returns: Boolean value. True if validation is successful; False if validation fails.
      */
-    open override func validate(_ value: String) -> Bool {
+    open func validate(_ value: String) -> Bool {
         return !value.isEmpty
     }
     
@@ -40,7 +40,7 @@ open class RequiredRule: Rule {
      
      - returns: String of error message.
      */
-    open override func errorMessage() -> String {
+    open func errorMessage() -> String {
         return message
     }
 }
