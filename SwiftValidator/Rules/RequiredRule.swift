@@ -31,7 +31,7 @@ open class RequiredRule: Rule {
      - parameter value: String to checked for validation.
      - returns: Boolean value. True if validation is successful; False if validation fails.
      */
-    open func validate(_ value: String) -> Bool {
+    open override func validate(_ value: String) -> Bool {
         return !value.isEmpty
     }
     
@@ -40,7 +40,7 @@ open class RequiredRule: Rule {
      
      - returns: String of error message.
      */
-    open func errorMessage() -> String {
+    open override func errorMessage() -> String {
         return message
     }
 }

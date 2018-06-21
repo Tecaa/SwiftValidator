@@ -18,7 +18,7 @@ public class MinLengthRule: Rule {
     private var message : String = "Must be at least 3 characters long"
     
     /// - returns: An initialized `MinLengthRule` object, or nil if an object could not be created for some reason that would not result in an exception.
-    public init(){}
+    public override init(){}
     
     /**
      Initializes a `MaxLengthRule` object that is to validate the length of the text of a field.
@@ -37,7 +37,7 @@ public class MinLengthRule: Rule {
      - parameter value: String to checked for validation.
      - returns: A boolean value. True if validation is successful; False if validation fails.
      */
-    public func validate(_ value: String) -> Bool {
+    public override func validate(_ value: String) -> Bool {
         return value.count >= DEFAULT_LENGTH
     }
     
@@ -46,7 +46,7 @@ public class MinLengthRule: Rule {
      
      - returns: String of error message.
      */
-    public func errorMessage() -> String {
+    public override func errorMessage() -> String {
         return message
     }
 }

@@ -19,12 +19,20 @@ public class Validator {
     public var errors = ValidatorDictionary<ValidationError>()
     /// Dictionary to hold fields by their object identifiers
     private var fields = ValidatorDictionary<Validatable>()
+    /// Variable that holds the localization selected
+    private var localization : Localization = EN_US()
     /// Variable that holds success closure to display positive status of field.
     private var successStyleTransform:((_ validationRule:ValidationRule)->Void)?
     /// Variable that holds error closure to display negative status of field.
     private var errorStyleTransform:((_ validationError:ValidationError)->Void)?
     /// - returns: An initialized object, or nil if an object could not be created for some reason that would not result in an exception.
-    public init(){}
+    
+    public init(){ }
+    
+    public init(localization : String)
+    {
+        self.localization = LocalizationInstancer.instance(localizationName: localization)
+    }
     
     // MARK: Private functions
     
@@ -107,7 +115,7 @@ public class Validator {
      - returns: No return value
      */
     public func registerField(_ field: ValidatableField, errorLabel:UILabel? = nil, rules:[Rule]) {
-        validations[field] = ValidationRule(field: field, rules:rules, errorLabel:errorLabel)
+        validations[field] = ValidationRule(field: field, rules:rules, errorLabel:errorLabel, localization: self.localization)
         fields[field] = field
     }
     

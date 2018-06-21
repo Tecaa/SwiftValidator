@@ -37,7 +37,7 @@ public class ConfirmationRule: Rule {
      - parameter value: String to checked for validation.
      - returns: A boolean value. True if validation is successful; False if validation fails.
      */
-    public func validate(_ value: String) -> Bool {
+    public override func validate(_ value: String) -> Bool {
         return confirmField.validationText == value
     }
     
@@ -46,7 +46,7 @@ public class ConfirmationRule: Rule {
      
      - returns: String of error message.
      */
-    public func errorMessage() -> String {
+    public override func errorMessage() -> String {
         return message
     }
 }

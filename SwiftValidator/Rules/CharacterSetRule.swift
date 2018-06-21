@@ -35,7 +35,7 @@ public class CharacterSetRule: Rule {
      - parameter value: String to checked for validation.
      - returns: Boolean value. True if validation is successful; False if validation fails.
      */
-    public func validate(_ value: String) -> Bool {
+    public override func validate(_ value: String) -> Bool {
         for uni in value.unicodeScalars {
             guard let uniVal = UnicodeScalar(uni.value), characterSet.contains(uniVal) else {
                 return false
@@ -49,7 +49,7 @@ public class CharacterSetRule: Rule {
      
      - returns: String of error message.
      */
-    public func errorMessage() -> String {
+    public override func errorMessage() -> String {
         return message
     }
 }
